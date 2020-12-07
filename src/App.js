@@ -5,23 +5,22 @@ import './App.css';
 function App() {
 
   const [movieState, setMovieState] = useState({
-    dates: {
-      maximum: '',
-      minimum: ''
-    },
-    page: 1,
-    results: []
+    dates: '',
+    page: 0,
+    results: [],
+    total_pages: 0,
+    total_results: 0,
   })
 
   async function getAppData() {
      const data = await getMovies();
-     console.log(data);
+     setMovieState(data);
   }
 
 
   useEffect(() => {
     getAppData();
-  })
+  }, []);
 
   return (
     <div className="App">
