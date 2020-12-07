@@ -4,6 +4,15 @@ import './App.css';
 
 function App() {
 
+  const [movieState, setMovieState] = useState({
+    dates: {
+      maximum: '',
+      minimum: ''
+    },
+    page: 1,
+    results: []
+  })
+
   async function getAppData() {
      const data = await getMovies();
      console.log(data);
