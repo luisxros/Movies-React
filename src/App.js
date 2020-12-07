@@ -5,7 +5,7 @@ import './App.css';
 
 function App() {
 
-  const [movieState, setMovieState] = useState({
+  const [movieData, setMovieData] = useState({
     dates: '',
     page: 0,
     results: [],
@@ -15,7 +15,7 @@ function App() {
 
   async function getAppData() {
      const data = await getMovies();
-     setMovieState(data);
+     setMovieData(data);
   }
 
 
@@ -28,7 +28,16 @@ function App() {
       <header className="App-header">
         <h1>Movies React</h1> 
       </header>
-      <MovieCard />
+      <h1>Now playing!</h1>
+      <div className="Card">
+      {movieData.results.map((result, idx) => (
+
+        <MovieCard key={idx} result={result} />
+
+      ))}
+
+
+      </div>
     </div>
   );
 }
