@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getMovies } from './services/movie-api';
+import MovieCard from './components/MovieCard';
 import './App.css';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
       <header className="App-header">
         <h1>Movies React</h1> 
       </header>
+      <MovieCard />
     </div>
   );
 }
